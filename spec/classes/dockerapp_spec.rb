@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'dockerapp' do
+describe '::dockerapp' do
   let(:node) { 'node1.test.com' }
   let(:params) do
   end
@@ -9,6 +9,10 @@ describe 'dockerapp' do
     {
       id: 'root',
       kernel: 'Linux',
+      osfamily: 'RedHat',
+      operatingsystem: 'OracleLinux',
+      operatingsystemmajrelease: '7',
+      architecture: 'x86_64',
       os:
       {
         'family'     => 'RedHat',
@@ -20,7 +24,6 @@ describe 'dockerapp' do
         },
       },
       path: '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
-      concat_basedir: '/dne',
       is_pe: false,
     }
   end
