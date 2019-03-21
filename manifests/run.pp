@@ -3,6 +3,33 @@
 #
 # Runs an instance of the docker app with the defined parameters
 #
+# === Parameters
+# [*service_name*]
+#   Used to determine the name of the app and the service installed. Usually it uses the title of the resource.
+#
+# [*image*]
+#   The docker image to be used.
+#
+# [*ports*]
+#   The ports to be exposed
+#
+# [*hostname*]
+#   Hostname of to be passed to the container. Defaults to the fqdn of the local machine
+#
+# [*extra_parameters*]
+#   Extra parameters to be passed to the container
+#
+# [*restart_service*]
+#   If the service must be restarted in the case of a failure
+#
+# [*volumes*]
+#   Volumes to be mounted
+#
+# [*dir_owner*]
+#   The uid of the dir owner of the app dir
+#
+# [*dir_group*]
+#   The uid of the dir group of the app dir
 #
 define dockerapp::run (
   $service_name = $title,
