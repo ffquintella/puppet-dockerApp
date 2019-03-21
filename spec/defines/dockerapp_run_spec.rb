@@ -1,17 +1,17 @@
 require 'spec_helper'
 
 describe 'dockerapp::run' do
+  let(:title) { 'runtest' }
   let(:node) { 'node1.test.com' }
   let(:params) do
     {
-      service_name: 'runtest',
       image: 'test/image:1.1',
       extra_parameters: [
         'param1',
         'param2',
       ],
       dir_owner: '10',
-      dirgroup: '10',
+      dir_group: '10',
     }
   end
 
