@@ -19,6 +19,9 @@
 # [*extra_parameters*]
 #   Extra parameters to be passed to the container
 #
+# [*environments*]
+#   Environments variables
+#
 # [*restart_service*]
 #   If the service must be restarted in the case of a failure
 #
@@ -37,6 +40,7 @@ define dockerapp::run (
   $ports = undef,
   $hostname = $::fqdn,
   $extra_parameters = [],
+  $environments = [],
   $restart_service = true,
   $volumes = [],
   $dir_owner = 1,
@@ -101,6 +105,7 @@ define dockerapp::run (
     extra_parameters => $extra_parameters,
     restart_service  => $restart_service,
     volumes          => $volumes,
+    env              => $environments,
   }
 
 
