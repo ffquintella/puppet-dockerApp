@@ -6,8 +6,8 @@ class dockerapp {
 
   include 'stdlib'
 
-  class {'::dockerapp::params':}
-  class {'::dockerapp::basedirs':}
-  class {'::docker':}
+  if !defined(Class['dockerapp::params']){class {'::dockerapp::params':}}
+  if !defined(Class['dockerapp::basedirs']){class {'::dockerapp::basedirs':}}
+  if !defined(Class['docker']){class {'::docker':}}
 
 }
