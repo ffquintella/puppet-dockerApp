@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 1.0.5
+
+**Bugfixes**
+
+* Added definition check to the directory creation
+
 ## Release 1.0.4
 
 **Features**

@@ -72,39 +72,47 @@ define dockerapp::run (
   $conf_libdir = "${lib_dir}/${service_name}"
   $conf_logdir = "${log_dir}/${service_name}"
 
-  file{ $conf_datadir:
-    ensure  => directory,
-    require => File[$data_dir],
-    owner   => $dir_owner,
-    group   => $dir_group,
+  if !defined(File[$conf_datadir]){
+    file{ $conf_datadir:
+      ensure  => directory,
+      require => File[$data_dir],
+      owner   => $dir_owner,
+      group   => $dir_group,
+    }
   }
 
-  file{ $conf_configdir:
-    ensure  => directory,
-    require => File[$config_dir],
-    owner   => $dir_owner,
-    group   => $dir_group,
+  if !defined(File[$conf_configdir]){
+    file{ $conf_configdir:
+      ensure  => directory,
+      require => File[$config_dir],
+      owner   => $dir_owner,
+      group   => $dir_group,
+    }
   }
 
-  file{ $conf_scriptsdir:
-    ensure  => directory,
-    require => File[$scripts_dir],
-    owner   => $dir_owner,
-    group   => $dir_group,
+  if !defined(File[$conf_scriptsdir]){
+    file{ $conf_scriptsdir:
+      ensure  => directory,
+      require => File[$scripts_dir],
+      owner   => $dir_owner,
+      group   => $dir_group,
+    }
   }
-
-  file{ $conf_logdir:
-    ensure  => directory,
-    require => File[$lib_dir],
-    owner   => $dir_owner,
-    group   => $dir_group,
+  if !defined(File[$conf_logdir]){
+    file{ $conf_logdir:
+      ensure  => directory,
+      require => File[$lib_dir],
+      owner   => $dir_owner,
+      group   => $dir_group,
+    }
   }
-
-  file{ $conf_libdir:
-    ensure  => directory,
-    require => File[$log_dir],
-    owner   => $dir_owner,
-    group   => $dir_group,
+  if !defined(File[$conf_libdir]){
+    file{ $conf_libdir:
+      ensure  => directory,
+      require => File[$log_dir],
+      owner   => $dir_owner,
+      group   => $dir_group,
+    }
   }
 
   ::docker::run { $service_name:
