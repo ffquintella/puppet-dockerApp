@@ -34,6 +34,12 @@
 # [*dir_group*]
 #   The uid of the dir group of the app dir
 #
+# [*command*]
+#   Command to be executed on the docker-run
+#
+# [*links*]
+#   Docker links
+#
 define dockerapp::run (
   $service_name = $title,
   $image = undef,
@@ -44,7 +50,10 @@ define dockerapp::run (
   $restart_service = true,
   $volumes = [],
   $dir_owner = 1,
-  $dir_group = 1
+  $dir_group = 1,
+  $command = undef,
+  $links = undef,
+  $require = undef,
 )
 {
   if !defined(Class['::dockerapp']){
@@ -106,6 +115,9 @@ define dockerapp::run (
     restart_service  => $restart_service,
     volumes          => $volumes,
     env              => $environments,
+    command          => $command,
+    links            => $links,
+    require          => $require,
   }
 
 

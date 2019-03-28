@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 1.0.4
+
+**Features**
+
+* Added the links parameter to the docker::run class
+* Added the command parameter to the docker::run class
+* Added the require parameter to the docker::run class
+
 ## Release 1.0.3
 
 **Features**
