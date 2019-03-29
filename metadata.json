@@ -1,6 +1,6 @@
 {
   "name": "ffquintella-dockerapp",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "author": "Felipe Quintella",
   "summary": "Base module needed for the series of modules dockerApp",
   "license": "GPL-3.0-or-later",
@@ -17,7 +17,7 @@
       "version_requirement": ">= 6.0.0 < 7.0.0"
     },
     {
-      "name": "puppetlabs/yum_core",
+      "name": "puppetlabs/yumrepo_core",
       "version_requirement": ">= 1.0.3 < 2.0.0"
     },
     {
