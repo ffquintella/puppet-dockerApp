@@ -120,11 +120,12 @@ define dockerapp::run (
   }
 
   if($links != undef){
-
-    if( !defined( Docker_Network[$net] )) {
-      docker_network { $net:
-        ensure => present,
-        driver => 'overlay',
+    if( $net != undef ){
+      if( !defined( Docker_Network[$net] )) {
+        docker_network { $net:
+          ensure => present,
+          driver => 'overlay',
+        }
       }
     }
 
