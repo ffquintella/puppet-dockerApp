@@ -124,7 +124,6 @@ define dockerapp::run (
       if( !defined( Docker_Network[$net] )) {
         docker_network { $net:
           ensure => present,
-          driver => 'overlay',
         }
       }
     }

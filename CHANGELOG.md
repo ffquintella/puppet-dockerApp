@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 1.1.3
+
+**Bugfixes**
+
+* Network definition
+
+
+## Release 1.1.2
+
+**Bugfixes**
+
+* Network definition
+
 ## Release 1.1.1
 
 **Features**
