@@ -40,6 +40,9 @@
 # [*links*]
 #   Docker links
 #
+# [*links*]
+#   Custom network to use
+#
 define dockerapp::run (
   $service_name = $title,
   $image = undef,
@@ -53,6 +56,7 @@ define dockerapp::run (
   $dir_group = 1,
   $command = undef,
   $links = undef,
+  $net = undef,
   $require = undef,
 )
 {
@@ -115,17 +119,42 @@ define dockerapp::run (
     }
   }
 
-  ::docker::run { $service_name:
-    image            => $image,
-    ports            => $ports,
-    hostname         => $hostname,
-    extra_parameters => $extra_parameters,
-    restart_service  => $restart_service,
-    volumes          => $volumes,
-    env              => $environments,
-    command          => $command,
-    links            => $links,
-    require          => $require,
+  if($links != undef){
+
+    if( !defined( Docker_Network[$net] )) {
+      docker_network { $net:
+        ensure => present,
+        driver => 'overlay',
+      }
+    }
+
+    ::docker::run { $service_name:
+      image            => $image,
+      ports            => $ports,
+      hostname         => $hostname,
+      extra_parameters => $extra_parameters,
+      restart_service  => $restart_service,
+      volumes          => $volumes,
+      env              => $environments,
+      command          => $command,
+      net              => [$net],
+      links            => $links,
+      require          => $require,
+    }
+  }else {
+
+    ::docker::run { $service_name:
+      image            => $image,
+      ports            => $ports,
+      hostname         => $hostname,
+      extra_parameters => $extra_parameters,
+      restart_service  => $restart_service,
+      volumes          => $volumes,
+      env              => $environments,
+      command          => $command,
+      net              => [$net],
+      require          => $require,
+    }
   }
 
 

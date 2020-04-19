@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 1.1.1
+
+**Features**
+
+* Added the net parameter
+
+
 ## Release 1.0.7
 
 **Bugfixes**
