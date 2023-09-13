@@ -2,12 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 1.2.0
+
+**Upgrades**
+
+* PDK 3.0 compatibility
+* RedHat 9
+
 ## Release 1.1.3
 
 **Bugfixes**
 
 * Network definition
-
 
 ## Release 1.1.2
 

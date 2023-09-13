@@ -28,12 +28,11 @@ include 'dockerapp'
 This module is not supposed to be used direcly
 
 
-
 ## Limitations
 
 This module is tested with:
-  * Oracle Linux 7.5
-  * Ubuntu 16
+  * Oracle Linux / RedHat 7.5 - 8 - 9
+  * Ubuntu 16 - 17 - 18
 
 ## Development
 
