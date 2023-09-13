@@ -17,6 +17,7 @@ describe '::dockerapp' do
       {
         'family'     => 'RedHat',
         'name'       => 'OracleLinux',
+        'architecture' => 'x86_64',
         'release'    =>
         {
           'major' => '7',

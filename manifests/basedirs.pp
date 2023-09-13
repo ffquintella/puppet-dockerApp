@@ -2,7 +2,7 @@
 # == Class: dockerapp::basedirs
 #
 #
-class dockerapp::basedirs {
+class dockerapp::basedirs inherits dockerapp::params {
 
 if!defined(File[$dockerapp::params::data_dir]) { file { $dockerapp::params::data_dir: ensure => directory, } }
 if!defined(File[$dockerapp::params::config_dir]) { file { $dockerapp::params::config_dir: ensure => directory, } }

@@ -6,3 +6,4 @@ fixtures:
      stdlib: "puppetlabs/stdlib"
      docker: "puppetlabs/docker"
      yumrepo: "puppetlabs/yumrepo_core"
+
