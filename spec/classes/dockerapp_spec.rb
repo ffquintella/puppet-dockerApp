@@ -20,8 +20,8 @@ describe '::dockerapp' do
         'architecture' => 'x86_64',
         'release'    =>
         {
-          'major' => '7',
-          'minor' => '5',
+          'major' => '8',
+          'minor' => '1',
         },
       },
       path: '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
