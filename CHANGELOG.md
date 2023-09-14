@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 1.2.2
+
+**Bugfixes**
+
+* Missing docker class 
+
 ## Release 1.2.0
 
 **Upgrades**
