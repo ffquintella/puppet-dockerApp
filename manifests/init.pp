@@ -20,7 +20,9 @@ class dockerapp (
     }	
   }else{
     if !defined(Class['docker']){
-        class { 'docker': }
+        class { 'docker': 
+          manage_package => false,
+        }
     } 
   }
   

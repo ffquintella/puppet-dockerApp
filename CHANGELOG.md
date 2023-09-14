@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 1.2.3
+
+**Bugfixes**
+
+* Fix docker package management
+
 ## Release 1.2.2
 
 **Bugfixes**
