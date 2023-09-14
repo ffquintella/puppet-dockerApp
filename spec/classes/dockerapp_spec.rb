@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe '::dockerapp' do
+describe 'dockerapp' do
   let(:node) { 'node1.test.com' }
   let(:params) do
   end
@@ -30,6 +30,7 @@ describe '::dockerapp' do
   end
 
   it { is_expected.to compile }
+  it { is_expected.to contain_class('dockerapp') }
   it { is_expected.to contain_class('dockerapp::params') }
   it { is_expected.to contain_class('dockerapp::basedirs') }
   it { is_expected.to contain_class('docker') }

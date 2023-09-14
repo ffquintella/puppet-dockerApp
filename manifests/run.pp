@@ -44,7 +44,7 @@
 #   Custom network to use
 #
 define dockerapp::run (
-  $service_name = $title,
+  String $service_name = $title,
   $image = undef,
   $ports = undef,
   $hostname = $::fqdn,

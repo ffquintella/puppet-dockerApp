@@ -18,6 +18,10 @@ class dockerapp (
           docker_ce_package_name      => 'docker',
         }
     }	
+  }else{
+    if !defined(Class['docker']){
+        class { 'docker': }
+    } 
   }
   
 

@@ -49,4 +49,12 @@ describe 'dockerapp::run' do
   it { is_expected.to contain_file('/srv/application-lib/runtest') }
   it { is_expected.to contain_file('/srv/application-log/runtest') }
   it { is_expected.to contain_file('/srv/scripts/runtest') }
+
+
+  it { is_expected.to contain_docker__run('runtest')
+          .with(
+            image: 'test/image:1.1',
+            net: ['test']
+          )}
+
 end
