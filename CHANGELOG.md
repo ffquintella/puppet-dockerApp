@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 1.3.1
+
+**Upgrades**
+
+* puppet 8 compatibility
+
 ## Release 1.2.3
 
 **Bugfixes**

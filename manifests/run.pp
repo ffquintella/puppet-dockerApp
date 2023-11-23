@@ -47,7 +47,7 @@ define dockerapp::run (
   String $service_name = $title,
   $image = undef,
   $ports = undef,
-  $hostname = $::fqdn,
+  $hostname = $facts['fqdn'],
   $extra_parameters = [],
   $environments = [],
   $restart_service = true,
