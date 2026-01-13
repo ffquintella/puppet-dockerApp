@@ -28,6 +28,10 @@ class dockerapp (
     } else {
       case $facts['os']['family'] {
         'RedHat': {
+          package { ['podman-docker', 'podman']:
+            ensure => absent,
+            before => Class['docker'],
+          }
           yumrepo { 'docker-ce':
             descr    => 'Docker CE Stable - $basearch',
             baseurl  => "https://download.docker.com/linux/centos/\$releasever/\$basearch/stable",
