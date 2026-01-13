@@ -15,10 +15,10 @@ describe 'dockerapp' do
       architecture: 'x86_64',
       os:
       {
-        'family'     => 'RedHat',
-        'name'       => 'OracleLinux',
+        'family' => 'RedHat',
+        'name' => 'OracleLinux',
         'architecture' => 'x86_64',
-        'release'    =>
+        'release' =>
         {
           'major' => '8',
           'minor' => '1',

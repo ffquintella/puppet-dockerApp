@@ -26,10 +26,10 @@ describe 'dockerapp::run' do
       architecture: 'x86_64',
       os:
       {
-        'family'     => 'RedHat',
-        'name'       => 'OracleLinux',
+        'family' => 'RedHat',
+        'name' => 'OracleLinux',
         'architecture' => 'x86_64',
-        'release'    =>
+        'release' =>
         {
           'major' => '8',
           'minor' => '1',
@@ -50,11 +50,11 @@ describe 'dockerapp::run' do
   it { is_expected.to contain_file('/srv/application-log/runtest') }
   it { is_expected.to contain_file('/srv/scripts/runtest') }
 
-
-  it { is_expected.to contain_docker__run('runtest')
-          .with(
-            image: 'test/image:1.1',
-            net: ['test']
-          )}
-
+  it do
+    is_expected.to contain_docker__run('runtest')
+      .with(
+        image: 'test/image:1.1',
+        net: ['test'],
+      )
+  end
 end
