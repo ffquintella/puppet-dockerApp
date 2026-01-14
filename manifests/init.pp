@@ -2,11 +2,13 @@
 # == Class: dockerapp
 #
 # @param manage_docker Whether to manage Docker installation
-# @param use_dist_packages Use distribution packages instead of official Docker CE repository
+# @param use_docker_ce Use official Docker CE repository instead of distribution packages
+# @param remove_podman Remove podman packages before installing Docker CE
 #
 class dockerapp (
-  Boolean $manage_docker    = true,
-  Boolean $use_dist_packages = false,
+  Boolean $manage_docker = true,
+  Boolean $use_docker_ce = true,
+  Boolean $remove_podman = true,
 ) {
   include stdlib
 
@@ -18,19 +20,15 @@ class dockerapp (
   }
 
   if $manage_docker {
-    if $use_dist_packages {
-      if !defined(Class['docker']) {
-        class { 'docker':
-          use_upstream_package_source => false,
-          service_overrides_template  => false,
-        }
-      }
-    } else {
+    if $use_docker_ce {
       case $facts['os']['family'] {
         'RedHat': {
-          package { ['podman-docker', 'podman']:
-            ensure => absent,
-            before => Class['docker'],
+          if $remove_podman {
+            package { ['podman-docker', 'podman']:
+              ensure => absent,
+              notify => [],
+              before => Class['docker'],
+            }
           }
           yumrepo { 'docker-ce':
             descr    => 'Docker CE Stable - $basearch',
@@ -38,6 +36,7 @@ class dockerapp (
             gpgkey   => 'https://download.docker.com/linux/centos/gpg',
             gpgcheck => true,
             enabled  => true,
+            notify   => [],
             before   => Class['docker'],
           }
         }
@@ -50,6 +49,7 @@ class dockerapp (
               'id'     => '9DC858229FC7DD38854AE2D88D81803C0EBFCD88',
               'source' => 'https://download.docker.com/linux/ubuntu/gpg',
             },
+            notify   => [],
             before   => Class['docker'],
           }
         }
@@ -62,6 +62,13 @@ class dockerapp (
           use_upstream_package_source => false,
           service_overrides_template  => false,
           docker_ce_package_name      => 'docker-ce',
+        }
+      }
+    } else {
+      if !defined(Class['docker']) {
+        class { 'docker':
+          use_upstream_package_source => false,
+          service_overrides_template  => false,
         }
       }
     }
