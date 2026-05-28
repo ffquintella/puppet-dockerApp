@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 1.7.0
+
+**Upgrades**
+
+* OpenVox 8+ compatibility (requirement bumped to `>= 8.0.0 < 10.0.0`)
+* Switched development kit from PDK to Regent
+* Widened dependency ranges: `puppetlabs/stdlib` and `puppetlabs/apt` allow 9.x–10.x; `puppetlabs/docker` allows 10.x–11.x
+
 ## Release 1.3.1
 
 **Upgrades**

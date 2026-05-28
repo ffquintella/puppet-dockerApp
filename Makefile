@@ -6,23 +6,23 @@ FORGE_CONFIG := .forge_config
 help:
 	@echo "Available targets:"
 	@echo "  make build    - Build the module package"
-	@echo "  make validate - Run PDK validation"
-	@echo "  make test     - Run PDK unit tests"
+	@echo "  make validate - Run Regent validation"
+	@echo "  make test     - Run Regent unit tests"
 	@echo "  make clean    - Remove built packages"
 	@echo "  make deploy   - Build and deploy to Puppet Forge"
 	@echo "  make help     - Show this help message"
 
-# Run PDK validation
+# Run Regent validation
 validate:
-	pdk validate
+	regent validate
 
-# Run PDK unit tests
+# Run Regent unit tests
 test:
-	pdk test unit
+	regent test
 
 # Build the module package
 build: validate
-	pdk build --force
+	regent build
 
 # Clean built packages
 clean:

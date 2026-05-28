@@ -113,14 +113,19 @@ For example, `dockerapp::run { 'myapp': }` creates:
 
 ## Limitations
 
-- Puppet `>= 7.0.0 < 9.0.0`.
+- OpenVox `>= 8.0.0` (also compatible with upstream Puppet `>= 8.0.0 < 10.0.0`).
 - Supported OS versions are listed in `metadata.json`.
 - Requires `puppetlabs/docker`, `puppetlabs/apt`, and `puppetlabs/yumrepo_core`.
 
 ## Development
 
-Run PDK validations before submitting changes:
+This module uses [Regent](https://github.com/puppetlabs/regent) as its
+development kit (PDK is no longer used). See [AGENTS.md](AGENTS.md) for the
+full toolchain reference.
+
+Run validations and unit tests before submitting changes:
 
 ```sh
-pdk validate
+make validate    # regent validate
+make test        # regent test
 ```
