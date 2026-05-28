@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 1.7.1
+
+**Bugfixes**
+
+* Fix `regent build` packaging the `vendor/bundle/` gem cache and other anchored paths (tarball dropped from ~70 MB to ~24 KB). Root cause: regent's `.pdkignore` parser does not honor leading-slash anchors; rewrote patterns without the leading `/`.
+* Exclude `.claude/` and `pdk.yaml` from the built package.
+
 ## Release 1.7.0
 
 **Upgrades**

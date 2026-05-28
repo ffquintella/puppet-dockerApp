@@ -69,6 +69,17 @@ make build         # runs validate, then `regent build`
 - Reuse `spec/spec_helper.rb` and `spec/default_facts.yml` for shared setup.
 - After any change to `manifests/` or `spec/`, run `make test`.
 
+## Packaging / `.pdkignore` quirk
+
+`regent build` honors `.pdkignore`, but its parser does **not** recognize
+gitignore-style leading-slash anchors. A pattern like `/vendor/` is treated as
+a no-op, so the gem cache, fixture modules, and `bin/` shims would otherwise
+ship in the tarball (inflating it to ~70 MB).
+
+Rule: in `.pdkignore`, write `vendor/`, not `/vendor/` — no leading slash on
+any pattern. If a fresh `make build` produces an unexpectedly large `.tar.gz`,
+that quirk is almost certainly the cause.
+
 ## Conventions
 
 - Bump `version` in `metadata.json` for user-visible changes.
