@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 1.7.2
+
+**Bugfixes**
+
+* Delegate `/srv/application-config`, `/srv/application-data`, and `/srv/scripts` to `baseapp`, preventing duplicate directory declarations when Docker applications and RAM share a host.
+
 ## Release 1.7.1
 
 **Bugfixes**

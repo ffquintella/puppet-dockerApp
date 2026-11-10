@@ -8,6 +8,7 @@ describe 'dockerapp' do
     it { is_expected.to contain_class('dockerapp') }
     it { is_expected.to contain_class('dockerapp::params') }
     it { is_expected.to contain_class('dockerapp::basedirs') }
+    it { is_expected.to contain_class('baseapp') }
     it { is_expected.to contain_file('/srv/application-data') }
     it { is_expected.to contain_file('/srv/application-config') }
     it { is_expected.to contain_file('/srv/application-lib') }

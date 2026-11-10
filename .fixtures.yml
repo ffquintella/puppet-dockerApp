@@ -7,3 +7,4 @@ fixtures:
      apt: "puppetlabs/apt"
      docker: "puppetlabs/docker"
      yumrepo: "puppetlabs/yumrepo_core"
+     baseapp: "ffquintella/baseapp"

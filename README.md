@@ -72,12 +72,14 @@ dockerapp::run { 'web':
 
 ## Directory layout
 
-`dockerapp` creates these base directories by default:
+`baseapp`, included by `dockerapp`, owns these shared base directories:
 - `/srv/application-data`
 - `/srv/application-config`
+- `/srv/scripts`
+
+`dockerapp` owns these Docker-specific base directories:
 - `/srv/application-lib`
 - `/srv/application-log`
-- `/srv/scripts`
 
 `dockerapp::run` creates per-service subdirectories under each base directory.
 For example, `dockerapp::run { 'myapp': }` creates:
